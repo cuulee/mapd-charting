@@ -511,6 +511,7 @@ export default function coordinateGridMixin (_chart) {
     _chart.xAxis().ticks(_chart.getNumTicksForXAxis())
 
     renderVerticalGridLines(g)
+    _chart.prepareLabelEdit("x")
   }
 
   _chart.renderXAxis = function (g) {
@@ -648,6 +649,7 @@ export default function coordinateGridMixin (_chart) {
     }
     transition(axisYLab, _chart.transitionDuration())
              .attr("transform", "translate(" + labelXPosition + "," + labelYPosition + "),rotate(" + rotation + ")")
+
   }
 
   _chart.renderYAxisAt = function (axisClass, axis, position) {
@@ -1587,6 +1589,7 @@ export default function coordinateGridMixin (_chart) {
              .style("top", ((_chart.effectiveHeight() + yOffset) / 2 + _chart.margins().top) + "px")
              .text(text)
     }
+    _chart.prepareLabelEdit("y")
   }
 
      /* istanbul ignore next */
